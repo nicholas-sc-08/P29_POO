@@ -37,4 +37,23 @@ export class PinoLogger implements ILogger {
     public debug(message: string, context?: LogContext): void {
         this.logger.debug(context ?? {}, message);
     };
+
+    public fatal(message: string, context?: LogContext): void {
+        this.logger.fatal(context ?? {}, message);
+    };
+
+    public trace(message: string, context?: LogContext): void {
+        this.logger.trace(context ?? {}, message);
+    };
+
+    public child(context?: LogContext): ILogger {
+
+        const childLogger = this.logger.child(context ?? {});
+
+        return {
+
+            ...this,
+            logger: childLogger
+        } as ILogger;
+    };
 };

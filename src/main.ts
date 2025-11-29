@@ -11,21 +11,20 @@ import type { ILogger } from './shared/providers/ILogger.js';
 configDotenv();
 
 async function bootstrap(){
-
-    const customLoggerInstance = container.resolve(Tokens.Logger);
-    const app = fastify({ logger: customLoggerInstance as any});
-
-    app.register(userRoutes, { prefix: "/users"});
     
-    const port = Number(process.env.PORT) || 3000;
-    const host = "0.0.0.0";
-
     try {
-      
-        const adress = await app.listen({port: port, host})
+
+        const app = fastify();
+        
+        app.register(userRoutes, { prefix: "/users"});
+        const loggerInstance = container.resolve(Tokens.Logger);
+        const port = Number(process.env.PORT) || 3000;
+        const host = "0.0.0.0";
+        
+        const adress = await app.listen({port: +port, host})
         
         const logger = container.resolve(Tokens.Logger) as ILogger;
-        logger.info(`Server running on adress ${adress} `);
+        (loggerInstance as any).info(`Server running on adress ${adress} `);
 
     } catch (error: any) {
         
@@ -34,4 +33,4 @@ async function bootstrap(){
     };
 };
 
-bootstrap();
+bootstrap()
