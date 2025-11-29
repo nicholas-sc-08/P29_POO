@@ -38,6 +38,9 @@
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true, // ESSENCIAL para o Tsyringe
+    "emitDecoratorMetadata": true,   // ESSENCIAL para o Tsyringe
     "moduleDetection": "force",
     "skipLibCheck": true,
   }
