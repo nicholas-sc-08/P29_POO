@@ -3,6 +3,7 @@ export enum Tokens {
     UserRepository = "UserRepository",
     HashProvider = "HashProvider",
     TokenProvider = "TokenProvider",
-    Logger = "Logger"
+    Logger = "Logger",
+    PrismaClient = "PrismaClient"
 };
 

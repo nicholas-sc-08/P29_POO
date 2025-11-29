@@ -1,6 +1,6 @@
 import { User } from "./User.js";
 
-type CreateUserData = {
+export type CreateUserData = {
 
     name: string;
     email: string;
@@ -9,7 +9,7 @@ type CreateUserData = {
 };
 
 export interface IUserRepository {
-
+    
     findByEmail(email: string): Promise<User | null>;
     create(data: CreateUserData): Promise<User>;
 };
