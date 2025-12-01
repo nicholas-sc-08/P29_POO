@@ -1,5 +1,5 @@
 import prisma from "../../prisma/client.js";
-import type { IUser, ICreateUser } from "../../types/IUser.js";
+import type { IUser, ICreateUser } from "./user.model.js";
 
 export class UserRepository implements IUser {
 
@@ -10,7 +10,7 @@ export class UserRepository implements IUser {
 
     async findByEmail(email: string): Promise<IUser | null> {
 
-        return prisma.users.findUnique({ where: email });
+        return prisma.users.findUnique({ where: {email: email} });
     };
 
     async create(data: { name: string, email: string, password: string }): Promise<IUser> {

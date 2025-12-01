@@ -1,5 +1,5 @@
 import { UserRepository } from "./user.repository.js";
-import type { IUser } from "../../types/IUser.js";
+import type { IUser } from "./user.model.js";
 
 export class UserService {
 

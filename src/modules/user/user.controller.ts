@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
 import { UserService } from "./user.service.js";
-import type { IUser } from "../../types/IUser.js";
+import type { IUser } from "./user.model.js";
 
 export class UserController {
 
